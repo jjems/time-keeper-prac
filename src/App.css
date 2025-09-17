@@ -1,0 +1,66 @@
+/* App.css */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+ul {
+  list-style: none;   /* 점 없애기 */
+  padding-left: 0;    /* 기본 들여쓰기 제거 */
+  margin: 0;          /* 필요시 여백 제거 */
+}
+
+li {
+  display: flex;              /* 가로 정렬 */
+  align-items: center;        /* 세로 정렬 */
+  gap: 8px;                   /* 요소 사이 간격 */
+  margin: 6px 0;              /* 위아래 여백 */
+}
+
+li input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+button {
+  width: 24px;                /* 버튼 크기 통일 */
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.schedule-input {
+  display: flex;
+  justify-content: row;
+}
+
+.schedule-area {
+  display: flex;
+  flex-direction: row;
+  margin: 3em auto;
+  justify-content: space-between;
+}
+
+.base-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-title {
+  display: flex;
+  color: #909090;
+  margin: 0 auto;
+}
