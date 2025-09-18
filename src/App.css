@@ -42,6 +42,12 @@ button:hover {
   background-color: #555;
 }
 
+.type-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+
 .schedule-input {
   display: flex;
   justify-content: row;
@@ -64,3 +70,4 @@ button:hover {
   color: #909090;
   margin: 0 auto;
 }
+
