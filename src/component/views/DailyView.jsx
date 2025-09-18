@@ -1,10 +1,10 @@
-// src/component/DailyView.jsx
+// src/component/views/DailyView.jsx
 import { useState } from "react";
 import InputForm from "../InputForm";
 import ScheduleList from "../ScheduleList";
 import RoutineList from "../RoutineList";
 
-function DailyView() {
+function DailyView({ date }) {
   const [scheduleList, setScheduleList] = useState([]);
   const [newSchedule, setNewSchedule] = useState('');
   const [selectedType, setSelectedType] = useState('todo');
@@ -50,7 +50,7 @@ function DailyView() {
 
   return (
     <div className='dailyView'>
-      <h2>할 일 / 루틴 추가</h2>
+      <h2>Daily View ({date})</h2>
       <InputForm
         newSchedule={newSchedule}
         setNewSchedule={setNewSchedule}
