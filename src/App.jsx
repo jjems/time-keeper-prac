@@ -6,42 +6,35 @@ import MonthlyView from "./component/views/MonthlyView";
 import "./App.css";
 
 function App() {
-  const [view, setView] = useState("daily");
-
-  // 오늘 날짜 (yyyy-mm-dd 형식)
-  const today = new Date().toISOString().slice(0,10);
+  const [view, setView] = useState("daily"); // 현재 화면 (daily / weekly / monthly)
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10)); // 선택된 날짜
+  const [scheduleList, setScheduleList] = useState([]); // 전체 일정 (할 일 + 루틴)
 
   return (
-    <div className="app-container">
-      {/* 네비게이션 버튼 */}
-      <div className="nav-buttons">
-        <button
-          className={view === "monthly" ? "active" : ""}
-          onClick={() => setView("monthly")}
-        >
-          Monthly
-        </button>
-
-        <button
-          className={view === "weekly" ? "active" : ""}
-          onClick={() => setView("weekly")}
-        >
-          Weekly
-        </button>
-        
-        <button
-          className={view === "daily" ? "active" : ""}
-          onClick={() => setView("daily")}
-        >
-          Daily
-        </button>
+    <div className="app">
+      {/* 화면 전환 버튼 */}
+      <div className="view-buttons">
+        <button onClick={() => setView("monthly")}>Monthly</button>
+        <button onClick={() => setView("weekly")}>Weekly</button>
+        <button onClick={() => setView("daily")}>Daily</button>
       </div>
 
       {/* 조건부 렌더링 */}
       <div className="view-container">
-        {view === "daily" && <DailyView date={today} />}
-        {view === "weekly" && <WeeklyView date={today} />}
-        {view === "monthly" && <MonthlyView date={today} />}
+        {view === "daily" && (
+          <DailyView
+            date={date}
+            setDate={setDate}
+            scheduleList={scheduleList}
+            setScheduleList={setScheduleList}
+          />
+        )}
+        {view === "weekly" && (
+          <WeeklyView date={date} scheduleList={scheduleList} />
+        )}
+        {view === "monthly" && (
+          <MonthlyView date={date} scheduleList={scheduleList} />
+        )}
       </div>
     </div>
   );

@@ -1,0 +1,34 @@
+/* 달력 그리드 */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.day-header {
+  font-weight: bold;
+  text-align: center;
+  background: #444;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.day-cell {
+  min-height: 80px;
+  border: 1px solid #666;
+  padding: 5px;
+  border-radius: 5px;
+  background: #222;
+}
+
+.day-cell.empty {
+  background: transparent;
+  border: none;
+}
+
+.date-label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}

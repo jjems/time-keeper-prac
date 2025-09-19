@@ -62,8 +62,14 @@ button:hover {
 .schedule-area {
   display: flex;
   flex-direction: row;
-  margin: 3em auto;
+  margin: 1em auto;
   justify-content: space-between;
+}
+
+.weekList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .base-content {
@@ -77,3 +83,12 @@ button:hover {
   margin: 0 auto;
 }
 
+.before {
+  display: flex;
+  flex-direction: column;
+}
+
+.after{
+  display: flex;
+  flex-direction: column;
+}

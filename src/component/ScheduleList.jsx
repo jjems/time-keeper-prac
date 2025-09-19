@@ -1,50 +1,30 @@
 // src/component/ScheduleList.jsx
 import React from "react";
 
-function ScheduleList({ scheduleList, toggleHandler, deleteHandler }){
-    return (
-        <div className='schedule-area'>
-            {/* 할 일 */}
-            <div className='before'>
-                <h2>할 일</h2>
-                <ul>
-                    {scheduleList
-                        .filter(schedule => schedule.type === "todo" && !schedule.completed)
-                        .map((schedule) => (
-                            <li key={schedule.id}>
-                                <input 
-                                    type="checkbox"
-                                    checked={schedule.completed}
-                                    onChange={() => toggleHandler(schedule.id)}
-                                />
-                                {schedule.text}
-                                <button onClick={()=> deleteHandler(schedule.id)}>x</button>
-                            </li>
-                    ))}
-                </ul>
-            </div>
+function ScheduleList({ scheduleList, toggleHandler, deleteHandler }) {
+  return (
+    <ul>
+      {scheduleList.map((schedule) => (
+        <li key={schedule.id}>
+          {/* toggleHandler 있을 때만 체크박스 표시 */}
+          {toggleHandler && (
+            <input
+              type="checkbox"
+              checked={schedule.completed}
+              onChange={() => toggleHandler(schedule.id)}
+            />
+          )}
 
-            {/* 한 일 */}
-            <div className='after'>
-                <h2>한 일</h2>
-                <ul>
-                    {scheduleList
-                        .filter(schedule => schedule.type === "todo" && schedule.completed)
-                        .map((schedule) => (
-                            <li key={schedule.id}>
-                                <input
-                                    type="checkbox"
-                                    checked={schedule.completed}
-                                    onChange={() => toggleHandler(schedule.id)}
-                                />
-                                {schedule.text}
-                            </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
-    );
+          {schedule.text}
+
+          {/* deleteHandler 있을 때만 삭제 버튼 표시 */}
+          {deleteHandler && (
+            <button onClick={() => deleteHandler(schedule.id)}>x</button>
+          )}
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 export default ScheduleList;
-
